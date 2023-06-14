@@ -70,55 +70,90 @@ function App() {
   return (
     // 제출란
     <div className="layout">
-      <form>
-        제목 <input value={title} onChange={setTitleHandler} /> 내용
-        <input value={contents} onChange={setcontentsHandler} /> <br />
-        <button onClick={todoAddClickBtn}>추가하기</button>
+      <header>
+        <div>My Todo List</div>
+        <div>React</div>
+      </header>
+      <form className="submit-container">
+        <div className="input-box">
+          제목
+          <input
+            className="submit-input"
+            value={title}
+            onChange={setTitleHandler}
+          />
+          내용
+          <input
+            className="submit-input"
+            value={contents}
+            onChange={setcontentsHandler}
+          />
+          <br />
+        </div>
+        <button className="submit-btn" onClick={todoAddClickBtn}>
+          추가하기
+        </button>
       </form>
 
       {/* 리스트들 */}
       <div>
         <h2>🔥Working</h2>
-        {todos.map((item) => {
-          if (!item.isDone) {
-            return (
-              <div key={item.id}>
-                <h3>{item.title}</h3>
-                <p>{item.contents}</p>
-                <button onClick={() => todoDeleteClickBtn(item.id)}>
-                  삭제하기
-                </button>
-                <button onClick={() => todoUpdateClickBtn(item.id)}>
-                  완료
-                </button>
-              </div>
-            );
-          } else {
-            return null;
-          }
-        })}
+        <div className="list-wrapper">
+          {todos.map((item) => {
+            if (!item.isDone) {
+              return (
+                <div className="todo-container" key={item.id}>
+                  <h3>{item.title}</h3>
+                  <p>{item.contents}</p>
+                  <button
+                    className="delete-btn"
+                    onClick={() => todoDeleteClickBtn(item.id)}
+                  >
+                    삭제하기
+                  </button>
+                  <button
+                    className="update-btn"
+                    onClick={() => todoUpdateClickBtn(item.id)}
+                  >
+                    완료
+                  </button>
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
+        </div>
       </div>
 
       <div>
         <h2>🌈Done!</h2>
-        {todos.map((item) => {
-          if (item.isDone) {
-            return (
-              <div key={item.id}>
-                <h3>{item.title}</h3>
-                <p>{item.contents}</p>
-                <button onClick={() => todoDeleteClickBtn(item.id)}>
-                  삭제하기
-                </button>
-                <button onClick={() => todoUpdateClickBtn(item.id)}>
-                  취소
-                </button>
-              </div>
-            );
-          } else {
-            return null;
-          }
-        })}
+        <div className="list-wrapper">
+          {todos.map((item) => {
+            if (item.isDone) {
+              return (
+                <div className="todo-container" key={item.id}>
+                  <h3>{item.title}</h3>
+                  <p>{item.contents}</p>
+                  <button
+                    className="delete-btn"
+                    onClick={() => todoDeleteClickBtn(item.id)}
+                  >
+                    삭제하기
+                  </button>
+                  <button
+                    className="update-btn"
+                    onClick={() => todoUpdateClickBtn(item.id)}
+                  >
+                    취소
+                  </button>
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
+        </div>
       </div>
     </div>
   );
