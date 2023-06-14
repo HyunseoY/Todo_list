@@ -29,19 +29,22 @@ function App() {
     setContents(event.target.value);
   };
 
+  const [number, setNumber] = useState(3);
+
   // 투두 등록 버튼 함수
   const todoAddClickBtn = (e) => {
     e.preventDefault();
     if (title === '' || contents === '') return;
 
     const newTodos = {
-      id: todos.length + 1,
+      id: number,
       title,
       contents,
     };
 
+    console.log(number);
     setTodos([...todos, newTodos]);
-
+    setNumber((prev) => prev + 1);
     setTitle('');
     setContents('');
   };
@@ -99,7 +102,8 @@ function App() {
       <div>
         <h2>🔥Working</h2>
         <div className="list-wrapper">
-          {todos.map((item) => {
+          {todos.map((item, name) => {
+            console.log(name);
             if (!item.isDone) {
               return (
                 <div className="todo-container" key={item.id}>
