@@ -20,6 +20,7 @@ function App() {
   const [title, setTitle] = useState('');
   const [contents, setContents] = useState('');
 
+  // 인풋 입력 창
   const setTitleHandler = (event) => {
     setTitle(event.target.value);
   };
@@ -30,6 +31,9 @@ function App() {
 
   // 투두 등록 버튼 함수
   const todoAddClickBtn = (e) => {
+    e.preventDefault();
+    if (title === '' || contents === '') return;
+
     const newTodos = {
       id: todos.length + 1,
       title,
@@ -37,7 +41,7 @@ function App() {
     };
 
     setTodos([...todos, newTodos]);
-    e.preventDefault();
+
     setTitle('');
     setContents('');
   };
@@ -64,6 +68,7 @@ function App() {
   };
 
   return (
+    // 제출란
     <div className="layout">
       <form>
         제목 <input value={title} onChange={setTitleHandler} /> 내용
@@ -71,6 +76,7 @@ function App() {
         <button onClick={todoAddClickBtn}>추가하기</button>
       </form>
 
+      {/* 리스트들 */}
       <div>
         <h2>🔥Working</h2>
         {todos.map((item) => {
