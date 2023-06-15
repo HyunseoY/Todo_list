@@ -17,7 +17,7 @@ App / Header / Form / List / TodoCard
 
 
 ### 3. 페이지
-
+https://hyunseoy.github.io/Todo_list/
 ![image](https://github.com/HyunseoY/GOE_CINEMA/assets/130683029/13484779-93b1-4b1c-a842-77defc4bd8e9)
 
 
