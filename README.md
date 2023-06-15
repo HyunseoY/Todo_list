@@ -30,7 +30,7 @@ https://hyunseoy.github.io/Todo_list/
 ### 4. 고민했던 부분
 
 - ✅ input영역 vaildation 설정 
-- ✅ 완료 또는 취소 버튼을 눌렀을 때 Working과 Done 영역으로 이동 
+- ✅ 완료 또는 취소 버튼을 눌렀을 때 Working과 Done 영역으로 선택적 이동 
 - ✅ 삭제,완료,취소 버튼 클릭 시 마다 중복되는 아이디 문제. 독립적인 아이디 할당하기
 - ✅ 제목, 내용 input 영역 각각 state를 두지 말고 하나로 줄여보기 
 - ✅ 컴포넌트 분리 
