@@ -27,7 +27,7 @@ App / Header / Form / List / TodoCard
 https://hyunseoy.github.io/Todo_list/
 ![image](https://github.com/HyunseoY/GOE_CINEMA/assets/130683029/13484779-93b1-4b1c-a842-77defc4bd8e9)
 
-### 4. 고민했던 부분
+### 4. 고민했던 부분 (✅해결 ❌미해결)
 
 - ✅ input영역 vaildation 설정 
 - ✅ 완료 또는 취소 버튼을 눌렀을 때 Working과 Done 영역으로 선택적 이동 
