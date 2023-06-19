@@ -5,8 +5,8 @@ import Form from 'component/Form.jsx';
 import List from 'component/List';
 
 function App() {
-  const [todos, setTodos] = useState([]);
-
+  const todoList = JSON.parse(localStorage.getItem('todo')) ?? [];
+  const [todos, setTodos] = useState(todoList);
   return (
     <div className="layout">
       <Header />

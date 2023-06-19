@@ -16,7 +16,11 @@ const Form = ({ todos, setTodos }) => {
     e.preventDefault();
     if (todo.title === '' || todo.content === '') return;
 
-    setTodos([...todos, { ...todo, id: todoID }]);
+    localStorage.setItem(
+      'todo',
+      JSON.stringify([...todos, { ...todo, id: todoID }])
+    );
+    setTodos(JSON.parse(localStorage.getItem('todo')));
     setTodo(INIT_VALUE);
   };
 
@@ -37,7 +41,6 @@ const Form = ({ todos, setTodos }) => {
           value={todo.content}
           onChange={onChangeHandler}
         />
-        <br />
       </div>
       <button className="submit-btn" onClick={todoAddClickBtn}>
         추가하기

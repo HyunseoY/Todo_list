@@ -8,15 +8,16 @@ const List = ({ todos, setTodos }) => {
       }
       return item;
     });
-
-    setTodos(updatedTodos);
+    localStorage.setItem('todo', JSON.stringify(updatedTodos));
+    setTodos(JSON.parse(localStorage.getItem('todo')));
   };
 
   const todoDeleteClickBtn = (id) => {
     const restTodos = todos.filter((item) => {
       return item.id !== id;
     });
-    setTodos(restTodos);
+    localStorage.setItem('todo', JSON.stringify(restTodos));
+    setTodos(JSON.parse(localStorage.getItem('todo')));
   };
 
   return (
@@ -24,17 +25,16 @@ const List = ({ todos, setTodos }) => {
       <div>
         <h2>🔥Working...</h2>
         <div className="list-wrapper">
-          {/* 시작 */}
           {todos
             .filter((item) => !item.isDone) // 아직 완료되지 않은 항목 필터링
             .map((item) => (
               <TodoCard
                 item={item}
+                key={item.id}
                 todoDeleteClickBtn={todoDeleteClickBtn}
                 todoUpdateClickBtn={todoUpdateClickBtn}
               />
             ))}
-          {/* 끝 */}
         </div>
       </div>
 
@@ -46,6 +46,7 @@ const List = ({ todos, setTodos }) => {
             .map((item) => (
               <TodoCard
                 item={item}
+                key={item.id}
                 todoDeleteClickBtn={todoDeleteClickBtn}
                 todoUpdateClickBtn={todoUpdateClickBtn}
               />
